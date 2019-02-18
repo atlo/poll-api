@@ -7,7 +7,7 @@ const router = require('./app/router')
 
 const app = express()
 
-mongoose.connect(`{process.env.DB}`, { useNewUrlParser: true })
+mongoose.connect(process.env.DB, { useNewUrlParser: true })
 
 app.use(morgan('dev'))
 app.use(bodyParser.json())
