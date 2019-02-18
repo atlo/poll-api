@@ -7,7 +7,10 @@ const router = require('./app/router')
 
 const app = express()
 
-mongoose.connect(`mongodb://localhost:27017/${process.env.DB}`, { useNewUrlParser: true })
+mongoose.connect(
+  `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@localhost:${process.env.DB_PORT}/${process.env.DB}`,
+  { useNewUrlParser: true }
+)
 
 app.use(morgan('dev'))
 app.use(bodyParser.json())
