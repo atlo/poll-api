@@ -39,23 +39,14 @@ function get (request, response) {
 }
 
 function vote (request, response) {
+  console.log(request.body)
   Vote
     .create({
       answer: request.body.answer,
       poll: request.params.poll,
       user: mongoose.Types.ObjectId()
     })
-    .then(function (vote) {
-      console.log({vote})
-      return Poll.get(request.params.poll)
-    })
-    .then(function (poll) {
-      handleNotFound(response, poll)
-
-      response
-        .status(200)
-        .json({poll})
-    })
+    .then(vote => response.json({vote}))
     .catch(error => handleError(response, error))
 }
 

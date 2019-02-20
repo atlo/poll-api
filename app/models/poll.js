@@ -5,8 +5,7 @@ const Poll = Schema({
   name: String,
   description: String,
   answers: [{
-    label: String,
-    value: String
+    name: String
   }]
 })
 
