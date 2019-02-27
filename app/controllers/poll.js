@@ -39,7 +39,6 @@ function get (request, response) {
 }
 
 function vote (request, response) {
-  console.log(request.body)
   Vote
     .create({
       answer: request.body.answer,
